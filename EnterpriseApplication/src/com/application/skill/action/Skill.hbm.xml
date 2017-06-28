@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+	<hibernate-mapping package="com.application.skill.action">
+		<class name="Skill" table="SKILL">
+			<!-- 主键由关联实体产生 -->
+			<id name="id" column="ID">
+				<generator class="uuid.hex"/>
+			</id>
+			<!-- 内容 -->
+			<property name="skcontent" column="SKCONTENT" type="string" not-null="true"/>
+			
+			<!-- 单向关联N-1 -->
+			<many-to-one name="user" column="USER_ID" class="com.application.login.action.User"/>
+			<!-- 1-1关联 -->
+			<!--<one-to-one name="user" class="com.application.login.action.User" constrained="true"/>-->
+			
+		</class>
+	</hibernate-mapping>

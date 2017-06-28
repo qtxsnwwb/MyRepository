@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 指定Struts2处于开发阶段，可以进行调试 -->
+	<!--<constant name="struts.devMode" value="true"/>-->
+	<!-- 开启动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	
+	<package name="default" namespace="/" extends="struts-default">
+		<!-- 登录的action -->
+		<action name="user" class="com.application.login.action.User">
+			<result name="success">/userIndex.jsp</result>
+			<result name="error">/login.jsp</result>
+			<result name="manager">/showPos.jsp</result>
+		</action>
+		<!-- 注册的action -->
+		<action name="regUser" class="com.application.login.action.User" method="register">
+			<result name="success">/login.jsp</result>
+			<result name="error">/reg.jsp</result>
+		</action>
+		
+		<!-- 用户个人信息-添加action -->
+		<action name="person" class="com.application.person.action.Person" method="add">
+			<result name="success">/upload.jsp</result>
+			<result name="error">/declare.jsp</result>
+		</action>
+		
+		<!-- 教育背景-添加action -->
+		<action name="edu" class="com.application.edu.action.Edu" method="add">
+			<result name="success">/practice.jsp</result>
+			<result name="error">/edu.jsp</result>
+		</action>
+		
+		<!-- 实习经历-添加action -->
+		<action name="practice" class="com.application.practice.action.Practice" method="add">
+			<result name="success">/shpra.jsp</result>
+			<result name="error">/practice.jsp</result>
+		</action>
+		
+		<!-- 校内实践-添加action -->
+		<action name="shpra" class="com.application.shpra.action.Shpra" method="add">
+			<result name="success">/skill.jsp</result>
+			<result name="error">/shpra.jsp</result>
+		</action>
+		
+		<!-- 技能证书-添加action -->
+		<action name="skill" class="com.application.skill.action.Skill" method="add">
+			<result name="success">/selfass.jsp</result>
+			<result name="error">/skill.jsp</result>
+		</action>
+		
+		<!-- 自我评价-添加action -->
+		<action name="selfass" class="com.application.selfass.action.Selfass" method="add">
+			<result name="success">/return.jsp</result>
+			<result name="error">/selfass.jsp</result>
+		</action>
+		
+		<!-- 文件上传 -->
+		<action name="upload" class="com.application.upload.action.Upload">
+			<!-- 重置fileUpload拦截器 -->
+			<!--<interceptor-ref name="fileUpload">
+				<param name="maximumSize">10090</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>-->
+			<result name="success">/edu.jsp</result>
+			<result name="error">/upload.jsp</result>
+		</action>
+		
+		<!-- 招聘信息 -->
+		<action name="job" class="com.application.job.action.Job">
+			<result name="success">/showPos.jsp</result>
+			<result name="error">/addPos.jsp</result>
+		</action>
+		
+		<!-- 管理员对招聘信息的操作 -->
+		<action name="consultjob" class="com.application.message.action.ConsultJob" method="{1}">
+			<result name="success">/showPos.jsp</result>
+		</action>
+		
+		<!-- 管理员对用户简历的操作 -->
+		<action name="consultapp" class="com.application.message.action.ConsultApp" method="{1}">
+			<result name="success">/checkApp.jsp</result>
+		</action>
+		
+		<!-- 管理员对招聘信息的模糊查询 -->
+		<action name="checkjob" class="com.application.message.action.CheckJob">
+			<result name="success">/showPos.jsp</result>
+		</action>
+		
+		<!-- 普通用户对招聘信息的操作 -->
+		<action name="showjob" class="com.application.message.action.ShowJob">
+			<result name="success">/appInfo.jsp</result>
+		</action>
+	</package>
+</struts>    

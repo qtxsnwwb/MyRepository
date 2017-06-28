@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+	<hibernate-mapping package="com.application.person.action">
+		<class name="Person" table="PERSON">
+			<!-- 主键由关联实体产生 -->
+			<id name="id" column="ID">
+				<generator class="uuid.hex"/>
+			</id>
+			
+			<!-- 真实姓名 -->
+			<property name="name" column="NAME" type="string" not-null="true"/>
+			<!-- 性别 -->
+			<property name="sex" column="SEX" type="string" not-null="true"/>
+			<!-- 出生日期 -->
+			<property name="date" column="DATE" type="timestamp" not-null="true"/>
+			<!-- 身份证号码 -->
+			<property name="idCard" column="IDCARD" type="string" not-null="true"/>
+			<!-- 电话 -->
+			<property name="tel" column="TEL" type="string" not-null="true"/>
+			<!-- 政治面貌 -->
+			<property name="status" column="STATUS" type="string" not-null="true"/>
+			<!-- 邮箱 -->
+			<property name="mail" column="MAIL" type="string" not-null="true"/>
+			<!-- 住址 -->
+			<property name="address" column="ADDRESS" type="string" not-null="true"/>
+			<!-- 学历 -->
+			<property name="edu" column="EDU" type="string" not-null="true"/>
+			<!-- 职位 -->
+			<property name="pos" column="POS" type="string" not-null="true"/>
+			
+			<!-- 单向关联N-1 -->
+			<many-to-one name="user" column="USER_ID" class="com.application.login.action.User"/>
+			<!-- 1-1关联 -->
+			<!--<one-to-one name="user" class="com.application.login.action.User" constrained="true"/>-->
+		</class>
+	</hibernate-mapping>

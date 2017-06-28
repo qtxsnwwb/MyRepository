@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+	<hibernate-mapping package="com.application.edu.action">
+		<class name="Edu" table="EDU">
+			<!-- 主键由关联实体产生 -->
+			<id name="id" column="ID">
+				<generator class="uuid.hex"/>
+			</id>
+			
+			<!-- 结束时间 -->
+			<property name="endTime" column="ENDTIME" type="timestamp" not-null="true"/>
+			<!-- 学校 -->
+			<property name="school" column="SCHOOL" type="string" not-null="true"/>
+			<!-- 专业 -->
+			<property name="major" column="MAJOR" type="string" not-null="true"/>
+			<!-- 学位 -->
+			<property name="degree" column="DEGREE" type="string" not-null="true"/>
+			<!-- 主修课程 -->
+			<property name="subject" column="SUBJECT" type="string" not-null="true"/>
+			
+			<!-- 单向关联N-1 -->
+			<many-to-one name="user" column="USER_ID" class="com.application.login.action.User"/>
+			<!--<one-to-one name="user" class="com.application.login.action.User" constrained="true"/>-->
+			
+		</class>
+	</hibernate-mapping>

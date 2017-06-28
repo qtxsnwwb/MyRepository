@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+	<hibernate-mapping package="com.application.job.action">
+		<class name="Job" table="JOB">
+			<!-- 主键由关联实体产生 -->
+			<id name="id" column="ID">
+				<generator class="native"/>
+			</id>
+
+			<!-- 职位名称 -->
+			<property name="jname" column="JNAME" type="string"/>
+			<!-- 所属部门 -->
+			<property name="partment" column="PARTMENT" type="string"/>
+			<!-- 工作性质 -->
+			<property name="worktype" column="WORKTYPE" type="string"/>
+			<!-- 月薪范围 -->
+			<property name="salary" column="SALARY" type="string"/>
+			<!-- 学历要求 -->
+			<property name="jedu" column="JEDU" type="string"/>
+			<!-- 招聘人数 -->
+			<property name="pnum" column="PNUM" type="string"/>
+			<!-- 更新时间 -->
+			<property name="jdate" column="JDATE" type="string"/>
+			<!-- 联系人 -->
+			<property name="jperson" column="JPERSON" type="string"/>
+			<!-- 手机 -->
+			<property name="jtel" column="JTEL" type="string"/>
+			<!-- 邮箱 -->
+			<property name="jmail" column="JMAIL" type="string"/>
+			<!-- 详细信息 -->
+			<property name="message" column="MESSAGE" type="string"/>
+			
+		</class>
+	</hibernate-mapping>

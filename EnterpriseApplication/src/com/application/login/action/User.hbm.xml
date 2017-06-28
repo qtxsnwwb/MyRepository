@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+	<hibernate-mapping package="com.application.login.action">
+		<class name="User" table="USER">
+			<!-- 主键由关联实体产生 -->
+			<id name="id" column="ID">
+				<generator class="uuid.hex"/>
+			</id>
+			
+			<!-- 用户名 -->
+			<property name="userName" column="USERNAME" type="string"/>
+			<!-- 密码 -->
+			<property name="userPass" column="USERPASS" type="string"/>
+			<!-- 权限 -->
+			<property name="role" column="ROLE" type="java.lang.Integer"/>
+			
+			<!-- 基于主键的1-1关联（用户信息） -->
+			<!--<one-to-one name="person" class="com.application.person.action.Person" cascade="all"/>-->
+			<!-- 基于主键的1-1关联（教育背景） -->
+			<!--<one-to-one name="edu" class="com.application.edu.action.Edu" cascade="all"/>-->
+			
+			<!--<one-to-one name="practice" class="com.application.practice.action.Practice" cascade="all"/>-->
+			<!--<one-to-one name="shpra" class="com.application.shpra.action.Shpra" cascade="all"/>-->
+			<!-- 基于主键的1-1关联（技能证书） -->
+			<!--<one-to-one name="skill" class="com.application.skill.action.Skill" cascade="all"/>-->
+			<!-- 基于主键的1-1关联（自我评价） -->
+			<!--<one-to-one name="selfass" class="com.application.selfass.action.Selfass" cascade="all"/>-->
+			
+			<!-- 基于主键的1-1关联（上传头像） -->
+			<!--<one-to-one name="upload" class="com.application.upload.action.Upload" cascade="all"/>-->
+		</class>
+		
+	</hibernate-mapping>

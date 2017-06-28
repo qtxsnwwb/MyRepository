@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+	<hibernate-mapping package="com.application.practice.action">
+		<class name="Practice" table="PRACTICE">
+			<!-- 主键由关联实体产生 -->
+			<id name="id" column="ID">
+				<generator class="uuid.hex"/>
+			</id>
+			
+			<!-- 实习时间 -->
+			<property name="ptime" column="PTIME" type="string"/>
+			<!-- 实习单位 -->
+			<property name="porgan" column="PORGAN" type="string" not-null="true"/>
+			<!-- 实习岗位 -->
+			<property name="ppos" column="PPOS" type="string" not-null="true"/>
+			<!-- 实习内容 -->
+			<property name="pcontent" column="PCONTENT" type="string" not-null="true"/>
+			
+			<!-- 单向关联N-1 -->
+			<many-to-one name="user" column="USER_ID" class="com.application.login.action.User"/>
+			<!-- 1-1关联 -->
+			<!--<one-to-one name="user" class="com.application.login.action.User" constrained="true"/>-->
+			
+		</class>
+	</hibernate-mapping>
